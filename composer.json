@@ -1,0 +1,39 @@
+{
+    "name": "riverside/php-replicate",
+    "description": "PHP client for Replicate",
+    "type": "library",
+    "version": "1.0.0",
+    "keywords": ["php", "replicate", "php client", "ai", "training"],
+    "homepage": "https://github.com/riverside/php-replicate",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dimitar Ivanov",
+            "email": "biggie@abv.bg",
+            "homepage": "https://github.com/riverside",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "php": ">=7.1",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "8"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpReplicate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpReplicate\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
