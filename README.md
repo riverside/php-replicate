@@ -63,8 +63,8 @@ $response = $model->get('model owner', 'model name');
 print_r($response->getBody());
 ```
 
-[x1]: https://github.com/riverside/php-replicate/actions/workflows/test.yml/badge.svg
-[y1]: https://github.com/riverside/php-replicate/actions/workflows/test.yml
+[x1]: https://github.com/riverside/php-replicate/actions/workflows/main.yml/badge.svg
+[y1]: https://github.com/riverside/php-replicate/actions/workflows/main.yml
 [x2]: https://poser.pugx.org/riverside/php-replicate/v/stable
 [y2]: https://packagist.org/packages/riverside/php-replicate
 [x3]: https://poser.pugx.org/riverside/php-replicate/license
