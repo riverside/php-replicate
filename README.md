@@ -1,9 +1,9 @@
 # php-replicate
 PHP client for Replicate
 
-| Build | GitHub pages | Stable | License |
-| ----- | ------------ | ------ | ------- |
-| [![CI][x1]][y1] | [![pages-build-deployment][x4]][y4] | [![Latest Stable Version][x2]][y2] | [![License][x3]][y3] |
+| Build | Stable | License |
+| ----- | ------ | ------- |
+| [![CI][x1]][y1] | [![Latest Stable Version][x2]][y2] | [![License][x3]][y3] |
 
 ### Requirements
 - PHP >= 7.1
@@ -69,5 +69,3 @@ print_r($response->getBody());
 [y2]: https://packagist.org/packages/riverside/php-replicate
 [x3]: https://poser.pugx.org/riverside/php-replicate/license
 [y3]: https://packagist.org/packages/riverside/php-replicate
-[x4]: https://github.com/riverside/php-replicate/actions/workflows/pages/pages-build-deployment/badge.svg
-[y4]: https://github.com/riverside/php-replicate/actions/workflows/pages/pages-build-deployment
