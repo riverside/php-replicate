@@ -63,7 +63,7 @@ $response = $model->get('model owner', 'model name');
 print_r($response->getBody());
 ```
 
-###Running tests
+### Running tests
 Developers clone the repository, and if needed, they can create their own **phpunit.xml** by copying **phpunit.xml.dist** and filling in their own configuration without modifying the version-controlled file.
 ```
 cp phpunit.xml.dist phpunit.xml

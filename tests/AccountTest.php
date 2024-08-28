@@ -11,7 +11,7 @@ class AccountTest extends TestCase
 {
     public function testGet()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $account = new Account($request);
         $response = $account->get();
 

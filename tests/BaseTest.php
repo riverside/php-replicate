@@ -26,12 +26,12 @@ class BaseTest extends TestCase
 
     public function testRequest()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $base = new Base($request);
 
         $this->assertInstanceOf(Request::class, $base->getRequest());
 
-        $request = new Request('new token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $base->setRequest($request);
         $this->assertInstanceOf(Request::class, $base->getRequest());
     }

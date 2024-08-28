@@ -11,96 +11,97 @@ class ModelTest extends TestCase
 {
     public function testCreate()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $model = new Model($request);
-        $response = $model->create('owner', 'name', 'visibility', 'hardware');
+        $response = $model->create(getenv('MODEL_OWNER'), getenv('MODEL_NAME'), getenv('VISIBILITY'),
+            getenv('HARDWARE'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('POST', $response->getMethod());
     }
 
     public function testDelete()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $model = new Model($request);
-        $response = $model->delete('owner', 'name');
+        $response = $model->delete(getenv('MODEL_OWNER'), getenv('MODEL_NAME'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('DELETE', $response->getMethod());
     }
 
     public function testDeleteVersion()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $model = new Model($request);
-        $response = $model->deleteVersion('owner', 'name', 'version id');
+        $response = $model->deleteVersion(getenv('MODEL_OWNER'), getenv('MODEL_NAME'), getenv('VERSION_ID'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('DELETE', $response->getMethod());
     }
 
     public function testGet()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $model = new Model($request);
-        $response = $model->get('owner', 'name');
+        $response = $model->get(getenv('MODEL_OWNER'), getenv('MODEL_NAME'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }
 
     public function testGetVersion()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $model = new Model($request);
-        $response = $model->getVersion('owner', 'name', 'version id');
+        $response = $model->getVersion(getenv('MODEL_OWNER'), getenv('MODEL_NAME'), getenv('VERSION_ID'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }
 
     public function testList()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $model = new Model($request);
         $response = $model->list();
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }
 
     public function testPrediction()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $model = new Model($request);
-        $response = $model->prediction('owner', 'name', []);
+        $response = $model->prediction(getenv('MODEL_OWNER'), getenv('MODEL_NAME'), []);
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('POST', $response->getMethod());
     }
 
     public function testSearch()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $model = new Model($request);
-        $response = $model->search('test');
+        $response = $model->search(getenv('SEARCH_QUERY'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('QUERY', $response->getMethod());
     }

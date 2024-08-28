@@ -11,12 +11,12 @@ class WebhookTest extends TestCase
 {
     public function testSecret()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $webhook = new Webhook($request);
         $response = $webhook->secret();
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }

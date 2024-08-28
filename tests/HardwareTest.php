@@ -11,7 +11,7 @@ class HardwareTest extends TestCase
 {
     public function testList()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $hardware = new Hardware($request);
         $response = $hardware->list();
 

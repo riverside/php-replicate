@@ -6,5 +6,19 @@
     </testsuites>
     <php>
         <env name="AUTH_TOKEN" value="your_auth_token_here" />
+        <env name="AUTH_TOKEN_FOR_WRITE" value="your_auth_token_here" />
+        <env name="TRAINING_ID" value="your_training_id" />
+        <env name="MODEL_OWNER" value="your_model_owner" />
+        <env name="MODEL_NAME" value="your_model_name" />
+        <env name="VERSION_ID" value="your_version_id" />
+        <env name="PREDICTION_ID" value="your_prediction_id" />
+        <env name="DEPLOYMENT_OWNER" value="your_deployment_owner" />
+        <env name="DEPLOYMENT_NAME" value="your_deployment_name" />
+        <env name="HARDWARE" value="cpu" />
+        <env name="MIN_INSTANCES" value="1" />
+        <env name="MAX_INSTANCES" value="1" />
+        <env name="VISIBILITY" value="public" />
+        <env name="COLLECTION_SLUG" value="image-restoration" />
+        <env name="SEARCH_QUERY" value="hello" />
     </php>
 </phpunit>

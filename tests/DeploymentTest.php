@@ -11,72 +11,73 @@ class DeploymentTest extends TestCase
 {
     public function testCreate()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $deployment = new Deployment($request);
-        $response = $deployment->create('name', 'model', 'version', 'hardware', 1, 3);
+        $response = $deployment->create(getenv('DEPLOYMENT_NAME'), getenv('MODEL_NAME'), getenv('VERSION_ID'),
+            getenv('HARDWARE'), getenv('MIN_INSTANCES'), getenv('MAX_INSTANCES'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('POST', $response->getMethod());
     }
 
     public function testDelete()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $deployment = new Deployment($request);
-        $response = $deployment->delete('owner', 'name');
+        $response = $deployment->delete(getenv('DEPLOYMENT_OWNER'), getenv('DEPLOYMENT_NAME'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('DELETE', $response->getMethod());
     }
 
     public function testGet()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $deployment = new Deployment($request);
-        $response = $deployment->get('owner', 'name');
+        $response = $deployment->get(getenv('DEPLOYMENT_OWNER'), getenv('DEPLOYMENT_NAME'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }
 
     public function testList()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $deployment = new Deployment($request);
         $response = $deployment->list();
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }
 
     public function testPrediction()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $deployment = new Deployment($request);
-        $response = $deployment->prediction('owner', 'name', []);
+        $response = $deployment->prediction(getenv('DEPLOYMENT_OWNER'), getenv('DEPLOYMENT_NAME'), []);
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('POST', $response->getMethod());
     }
 
     public function testUpdate()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $deployment = new Deployment($request);
-        $response = $deployment->update('owner', 'name', []);
+        $response = $deployment->update(getenv('DEPLOYMENT_OWNER'), getenv('DEPLOYMENT_NAME'), []);
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('PATCH', $response->getMethod());
     }

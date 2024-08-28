@@ -28,22 +28,24 @@ class RequestTest extends TestCase
 
     public function testToken()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $this->assertIsString($request->getAuthToken());
+        $this->assertEquals($request->getAuthToken(), getenv('AUTH_TOKEN'));
 
-        $request->setAuthToken('new token');
+        $request->setAuthToken(getenv('AUTH_TOKEN'));
         $this->assertIsString($request->getAuthToken());
+        $this->assertEquals($request->getAuthToken(), getenv('AUTH_TOKEN'));
     }
 
     public function testClient()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $this->assertInstanceOf(Client::class, $request->getClient());
     }
 
     public function testVerbs()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
 
         $response = $request->get('/test');
         $this->assertInstanceOf(Response::class, $response);

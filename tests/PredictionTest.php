@@ -11,48 +11,48 @@ class PredictionTest extends TestCase
 {
     public function testCancel()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $prediction = new Prediction($request);
-        $response = $prediction->cancel('test prediction id');
+        $response = $prediction->cancel(getenv('PREDICTION_ID'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('POST', $response->getMethod());
     }
 
     public function testCreate()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $prediction = new Prediction($request);
-        $response = $prediction->create([], 'version');
+        $response = $prediction->create([], getenv('VERSION_ID'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('POST', $response->getMethod());
     }
 
     public function testGet()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $prediction = new Prediction($request);
-        $response = $prediction->get('test prediction id');
+        $response = $prediction->get(getenv('PREDICTION_ID'));
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }
 
     public function testList()
     {
-        $request = new Request('test token');
+        $request = new Request(getenv('AUTH_TOKEN'));
         $prediction = new Prediction($request);
         $response = $prediction->list();
 
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertNotEmpty($response->getError());
+        $this->assertIsString($response->getUrl());
         $this->assertIsArray($response->getHeaders());
         $this->assertSame('GET', $response->getMethod());
     }
