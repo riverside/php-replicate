@@ -18,6 +18,12 @@ class BaseTest extends TestCase
         }
     }
 
+    public function testEnv()
+    {
+        $authToken = getenv('AUTH_TOKEN', true);
+        $this->assertNotFalse($authToken);
+    }
+
     public function testRequest()
     {
         $request = new Request('test token');

@@ -63,6 +63,11 @@ $response = $model->get('model owner', 'model name');
 print_r($response->getBody());
 ```
 
+###Running tests
+Developers clone the repository, and if needed, they can create their own **phpunit.xml** by copying **phpunit.xml.dist** and filling in their own configuration without modifying the version-controlled file.
+```
+cp phpunit.xml.dist phpunit.xml
+```
 [x1]: https://github.com/riverside/php-replicate/actions/workflows/main.yml/badge.svg
 [y1]: https://github.com/riverside/php-replicate/actions/workflows/main.yml
 [x2]: https://poser.pugx.org/riverside/php-replicate/v/stable

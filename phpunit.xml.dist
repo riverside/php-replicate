@@ -4,4 +4,7 @@
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <env name="AUTH_TOKEN" value="your_auth_token_here" />
+    </php>
 </phpunit>
