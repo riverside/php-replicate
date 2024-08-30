@@ -14,6 +14,7 @@ class Deployment extends Base
      * @param int $min_instances
      * @param int $max_instances
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function create(string $name, string $model, string $version, string $hardware, int $min_instances, int $max_instances): Response
     {
@@ -28,6 +29,7 @@ class Deployment extends Base
      * @param string $deployment_owner
      * @param string $deployment_name
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function delete(string $deployment_owner, string $deployment_name): Response
     {
@@ -40,6 +42,7 @@ class Deployment extends Base
      * @param string $deployment_owner
      * @param string $deployment_name
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function get(string $deployment_owner, string $deployment_name): Response
     {
@@ -51,6 +54,7 @@ class Deployment extends Base
      *
      * @param string|null $cursor
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function list(string $cursor = null): Response
     {
@@ -71,6 +75,7 @@ class Deployment extends Base
      * @param array $input
      * @param array $optional
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function prediction(string $deployment_owner, string $deployment_name, array $input, array $optional = []): Response
     {
@@ -86,6 +91,7 @@ class Deployment extends Base
      * @param string $deployment_name
      * @param array $data
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function update(string $deployment_owner, string $deployment_name, array $data): Response
     {

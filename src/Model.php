@@ -13,6 +13,7 @@ class Model extends Base
      * @param string $hardware
      * @param array $optional
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function create(string $owner, string $name, string $visibility, string $hardware, array $optional = []): Response
     {
@@ -27,6 +28,7 @@ class Model extends Base
      * @param string $model_owner
      * @param string $model_name
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function delete(string $model_owner, string $model_name): Response
     {
@@ -40,6 +42,7 @@ class Model extends Base
      * @param string $model_name
      * @param string $version_id
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function deleteVersion(string $model_owner, string $model_name, string $version_id): Response
     {
@@ -52,6 +55,7 @@ class Model extends Base
      * @param string $model_owner
      * @param string $model_name
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function get(string $model_owner, string $model_name): Response
     {
@@ -65,6 +69,7 @@ class Model extends Base
      * @param string $model_name
      * @param string $version_id
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getVersion(string $model_owner, string $model_name, string $version_id): Response
     {
@@ -76,6 +81,7 @@ class Model extends Base
      *
      * @param string|null $cursor
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function list(string $cursor = null): Response
     {
@@ -96,6 +102,7 @@ class Model extends Base
      * @param array $input
      * @param array $optional
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function prediction(string $model_owner, string $model_name, array $input, array $optional = []): Response
     {
@@ -110,6 +117,7 @@ class Model extends Base
      * @param string $keyword
      * @param string|null $cursor
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function search(string $keyword, string $cursor = null): Response
     {

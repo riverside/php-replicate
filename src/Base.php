@@ -9,6 +9,11 @@ class Base
      */
     protected $request;
 
+    /**
+     * Base constructor.
+     *
+     * @param Request $request
+     */
     public function __construct($request)
     {
         $this->request = $request;

@@ -9,6 +9,7 @@ class Prediction extends Base
      *
      * @param string $prediction_id
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function cancel(string $prediction_id): Response
     {
@@ -22,6 +23,7 @@ class Prediction extends Base
      * @param string $version
      * @param array $optional
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function create(array $input, string $version, array $optional = []): Response
     {
@@ -35,6 +37,7 @@ class Prediction extends Base
      *
      * @param string $prediction_id
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function get(string $prediction_id): Response
     {
@@ -46,6 +49,7 @@ class Prediction extends Base
      *
      * @param string|null $cursor
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function list(string $cursor = null): Response
     {

@@ -9,6 +9,7 @@ class Collection extends Base
      *
      * @param string|null $cursor
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function list(string $cursor = null): Response
     {
@@ -26,6 +27,7 @@ class Collection extends Base
      *
      * @param string $collection_slug
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function get(string $collection_slug): Response
     {

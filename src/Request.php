@@ -21,56 +21,131 @@ class Request
      */
     protected $authToken;
 
-    public function __construct($authToken)
+    /**
+     * Request constructor.
+     *
+     * @param string $authToken
+     */
+    public function __construct(string $authToken)
     {
         $this->setAuthToken($authToken);
 
         $this->client = new Client();
     }
 
-    public function getAuthToken()
+    /**
+     * Gets the auth token
+     *
+     * @return string
+     */
+    public function getAuthToken(): string
     {
         return $this->authToken;
     }
 
-    public function setAuthToken($authToken)
+    /**
+     * Sets the auth token
+     *
+     * @param string $authToken
+     * @return Request
+     */
+    public function setAuthToken(string $authToken): Request
     {
         $this->authToken = $authToken;
 
         return $this;
     }
 
-    public function getClient()
+    /**
+     * Gets the HTTP client
+     *
+     * @return Client
+     */
+    public function getClient(): Client
     {
         return $this->client;
     }
 
-    public function get($uri, $headers = [])
+    /**
+     * Make a HTTP GET request
+     *
+     * @param string $uri
+     * @param array $headers
+     * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function get(string $uri, array $headers = []): Response
     {
         return $this->makeRequest('GET', $this->endPoint . $uri, $headers);
     }
 
-    public function post($uri, $data = [], $headers = [])
+    /**
+     * Make a HTTP POST request
+     *
+     * @param string $uri
+     * @param array $data
+     * @param array $headers
+     * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function post(string $uri, array $data = [], array $headers = []): Response
     {
         return $this->makeRequest('POST', $this->endPoint . $uri, $headers, $data);
     }
 
-    public function delete($uri, $headers = [])
+    /**
+     * Make a HTTP DELETE request
+     *
+     * @param string $uri
+     * @param array $headers
+     * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function delete(string $uri, array $headers = []): Response
     {
         return $this->makeRequest('DELETE', $this->endPoint . $uri, $headers);
     }
 
-    public function patch($uri, $data, $headers = [])
+    /**
+     * Make a HTTP PATCH request
+     *
+     * @param string $uri
+     * @param array $data
+     * @param array $headers
+     * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function patch(string $uri, array $data, array $headers = []): Response
     {
         return $this->makeRequest('PATCH', $this->endPoint . $uri, $headers, $data);
     }
 
-    public function query($uri, $data, $headers = [])
+    /**
+     * Make a HTTP QUERY request
+     *
+     * @param string $uri
+     * @param string $data
+     * @param array $headers
+     * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function query(string $uri, string $data, array $headers = []): Response
     {
         return $this->makeRequest('QUERY', $this->endPoint . $uri, $headers, $data);
     }
 
-    protected function makeRequest($method, $url, $headers = [], $data = null) {
+    /**
+     * Make an HTTP request
+     *
+     * @param string $method
+     * @param string $url
+     * @param array $headers
+     * @param string|array|null $data
+     * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    protected function makeRequest(string $method, string $url, array $headers = [], $data = null): Response
+    {
 
         $headers['Authorization'] = 'Bearer ' . $this->authToken;
         $headers['Accept'] = 'application/json';

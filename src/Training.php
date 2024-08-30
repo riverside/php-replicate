@@ -9,6 +9,7 @@ class Training extends Base
      *
      * @param string $training_id
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function cancel(string $training_id): Response
     {
@@ -22,6 +23,7 @@ class Training extends Base
      * @param string $model_name
      * @param string $version_id
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function create(string $model_owner, string $model_name, string $version_id): Response
     {
@@ -33,6 +35,7 @@ class Training extends Base
      *
      * @param string $training_id
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function get(string $training_id): Response
     {
@@ -44,6 +47,7 @@ class Training extends Base
      *
      * @param string|null $cursor
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function list(string $cursor = null): Response
     {
