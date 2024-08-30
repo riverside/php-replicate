@@ -59,7 +59,7 @@ class RequestTest extends TestCase
         $response = $request->patch('/test', []);
         $this->assertInstanceOf(Response::class, $response);
 
-        $response = $request->query('/test', []);
+        $response = $request->query('/test', 'hello');
         $this->assertInstanceOf(Response::class, $response);
     }
 }
