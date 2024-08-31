@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHP client for Replicate</title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="php-replicate">
+    <meta name="twitter:description" content="PHP client for Replicate">
+    <meta name="twitter:image:src" content="https://riverside.github.io/php-replicate/img/php-replicate.png">
+    <meta name="twitter:url" content="https://riverside.github.io/php-replicate/">
+    <meta name="twitter:site" content="@zino_ui">
+    <meta name="twitter:creator" content="@DimitarIvanov">
+    <meta property="og:title" content="php-replicate">
+    <meta property="og:site_name" content="Zino UI">
+    <meta property="og:url" content="https://riverside.github.io/php-replicate/">
+    <meta property="og:description" content="PHP client for Replicate">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="https://twitter.com/DimitarIvanov">
+    <meta property="article:publisher" content="https://github.com/riverside">
+    <meta property="og:image" content="https://riverside.github.io/php-replicate/img/php-replicate.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-298048-24"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-298048-24');
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">php-replicate</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="./">Home</a></li>
+                    <li class="active"><a href="api.html">API</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/riverside/php-replicate">View project on GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-md-2" role="complementary">
+                <nav class="hidden-sm hidden-xs">
+                    <ul class="nav" id="menu">
+                        <li><a href="#account">Account</a>
+                            <ul class="nav">
+                                <li><a href="#account-construct">__construct()</a></li>
+                                <li><a href="#account-get">get()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#inherit">Inherit</a>
+                            <ul class="nav">
+
+                                <li><a href="#inherit-getRequest">getRequest()</a></li>
+                                <li><a href="#inherit-setRequest">setRequest()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#collection">Collection</a>
+                            <ul class="nav">
+                                <li><a href="#collection-construct">__construct()</a></li>
+                                <li><a href="#collection-get">get()</a></li>
+                                <li><a href="#collection-list">list()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#deployment">Deployment</a>
+                            <ul class="nav">
+                                <li><a href="#deployment-construct">__construct()</a></li>
+                                <li><a href="#deployment-create">create()</a></li>
+                                <li><a href="#deployment-delete">delete()</a></li>
+                                <li><a href="#deployment-get">get()</a></li>
+                                <li><a href="#deployment-list">list()</a></li>
+                                <li><a href="#deployment-prediction">prediction()</a></li>
+                                <li><a href="#deployment-update">update()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#hardware">Hardware</a>
+                            <ul class="nav">
+                                <li><a href="#hardware-construct">__construct()</a></li>
+                                <li><a href="#hardware-list">list()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Model</a>
+                            <ul class="nav">
+                                <li><a href="#model-construct">__construct()</a></li>
+                                <li><a href="#model-create">create()</a></li>
+                                <li><a href="#model-delete">delete()</a></li>
+                                <li><a href="#model-deleteVersion">deleteVersion()</a></li>
+                                <li><a href="#model-get">get()</a></li>
+                                <li><a href="#model-getVersion">getVersion()</a></li>
+                                <li><a href="#model-list">list()</a></li>
+                                <li><a href="#model-prediction">prediction()</a></li>
+                                <li><a href="#model-search">search()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#prediction">Prediction</a>
+                            <ul class="nav">
+                                <li><a href="#prediction-construct">__construct()</a></li>
+                                <li><a href="#prediction-cancel">cancel()</a></li>
+                                <li><a href="#prediction-create">create()</a></li>
+                                <li><a href="#prediction-get">get()</a></li>
+                                <li><a href="#prediction-list">list()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#req">Request</a>
+                            <ul class="nav">
+                                <li><a href="#req-construct">__construct()</a></li>
+                                <li><a href="#req-getAuthToken">getAuthToken()</a></li>
+                                <li><a href="#req-getClient">getClient()</a></li>
+                                <li><a href="#req-setAuthToken">setAuthToken()</a></li>
+                                <li><a href="#req-delete">delete()</a></li>
+                                <li><a href="#req-get">get()</a></li>
+                                <li><a href="#req-post">post()</a></li>
+                                <li><a href="#req-patch">patch()</a></li>
+                                <li><a href="#req-query">query()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#resp">Response</a>
+                            <ul class="nav">
+                                <li><a href="#resp-construct">__construct()</a></li>
+                                <li><a href="#resp-getBody">getBody()</a></li>
+                                <li><a href="#resp-getError">getError()</a></li>
+                                <li><a href="#resp-getHeaders">getHeaders()</a></li>
+                                <li><a href="#resp-getHttpCode">getHttpCode()</a></li>
+                                <li><a href="#resp-getMethod">getMethod()</a></li>
+                                <li><a href="#resp-getUrl">getUrl()</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#training">Training</a>
+                            <ul class="nav">
+                                <li><a href="#training-construct">__construct()</a></li>
+                                <li><a href="#training-cancel">cancel()</a></li>
+                                <li><a href="#training-create">create()</a></li>
+                                <li><a href="#training-get">get()</a></li>
+                                <li><a href="#training-list">list()</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="#webhook">Webhook</a>
+                            <ul class="nav">
+                                <li><a href="#webhook-construct">__construct()</a></li>
+                                <li><a href="#webhook-secret">secret()</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div><!-- .col-md-2 -->
+            <div class="col-md-10" role="main">
+                <!-- Account -->
+                <h2 class="h3" id="account">Account</h2>
+                <section>
+                    <h3 class="h4" id="account-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Account</p>
+                    <pre class="prettyprint">$account = new Account($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="account-get">get()</h3>
+                    <p>Get the authenticated account.</p>
+                    <pre class="prettyprint">$response = $account->get();</pre>
+                </section>
+                <!-- Inherit -->
+                <h2 class="h3" id="inherit">Inherit</h2>
+                <section>
+                    <h3 class="h4" id="inherit-construct">__construct(Request $request)</h3>
+                    <p></p>
+                    <pre class="prettyprint">$request = new Request("your-auth-token");
+$model = new Model($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="inherit-getRequest">getRequest()</h3>
+                    <p>Get an instance of Request.</p>
+                    <pre class="prettyprint">$request = $model->getRequest();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="inherit-setRequest">setRequest(Request $request)</h3>
+                    <p>Set an instance of Request.</p>
+                    <pre class="prettyprint">$model->setRequest($request);</pre>
+                </section>
+                <!-- Collection -->
+                <h2 class="h3" id="collection">Collection</h2>
+                <section>
+                    <h3 class="h4" id="collection-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Collection</p>
+                    <pre class="prettyprint">$collection = new Collection($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="collection-get">get(string $collection_slug)</h3>
+                    <p>Get a collection of models</p>
+                    <pre class="prettyprint">$response = $collection->get('hello');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="collection-list">list()</h3>
+                    <p>List collections of models</p>
+                    <pre class="prettyprint">$response = $collection->list();</pre>
+                </section>
+                <!-- Deployment -->
+                <h2 class="h3" id="deployment">Deployment</h2>
+                <section>
+                    <h3 class="h4" id="deployment-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Deployment</p>
+                    <pre class="prettyprint">$deployment = new Deployment($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="deployment-create">create(string $name, string $model, string $version, string $hardware, int $min_instances, int $max_instances)</h3>
+                    <p>Create a deployment</p>
+                    <pre class="prettyprint">$response = $deployment->create('deployment_name', 'model_name', 'version', 'cpu', 1, 3);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="deployment-delete">delete(string $deployment_owner, string $deployment_name)</h3>
+                    <p>Delete a deployment</p>
+                    <pre class="prettyprint">$response = $deployment->delete('deployment_owner', 'deployment_name');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="deployment-get">get(string $deployment_owner, string $deployment_name)</h3>
+                    <p>Get a deployment</p>
+                    <pre class="prettyprint">$response = $deployment->get('deployment_owner', 'deployment_name');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="deployment-list">list(string $cursor = null)</h3>
+                    <p>List deployments</p>
+                    <pre class="prettyprint">$response = $deployment->list();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="deployment-prediction">prediction(string $deployment_owner, string $deployment_name, array $input, array $optional = [])</h3>
+                    <p>Create a prediction using a deployment</p>
+                    <pre class="prettyprint">$response = $deployment->prediction('deployment_owner', 'deployment_name', ['input' => ['text' => 'Alice']]);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="deployment-update">update(string $deployment_owner, string $deployment_name, array $data)</h3>
+                    <p>Update a deployment</p>
+                    <pre class="prettyprint">$response = $deployment->update('deployment_owner', 'deployment_name', ['min_instances' => 3, 'max_instances' => 10]);</pre>
+                </section>
+                <!-- -->
+                <h2 class="h3" id="hardware">Hardware</h2>
+                <section>
+                    <h3 class="h4" id="hardware-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Hardware</p>
+                    <pre class="prettyprint">$hardware = new Hardware($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="hardware-list">list()</h3>
+                    <p>List available hardware for models</p>
+                    <pre class="prettyprint">$response = $hardware->list();</pre>
+                </section>
+                <!-- -->
+                <h2 class="h3" id="model">Model</h2>
+                <section>
+                    <h3 class="h4" id="model-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Model</p>
+                    <pre class="prettyprint">$model = new Model($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-create">create(string $owner, string $name, string $visibility, string $hardware, array $optional = [])</h3>
+                    <p>Create a model</p>
+                    <pre class="prettyprint">$response = $model->create('model_owner', 'model_name', 'public', 'cpu');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-delete">delete(string $model_owner, string $model_name)</h3>
+                    <p>Delete a model</p>
+                    <pre class="prettyprint">$response = $model->delete('model_owner', 'model_name');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-deleteVersion">deleteVersion(string $model_owner, string $model_name, string $version_id)</h3>
+                    <p>Delete a model version</p>
+                    <pre class="prettyprint">$response = $model->deleteVersion('model_owner', 'model_name', 'version_id');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-get">get(string $model_owner, string $model_name)</h3>
+                    <p>Get a model</p>
+                    <pre class="prettyprint">$response = $model->get('model_owner', 'model_name');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-getVersion">getVersion(string $model_owner, string $model_name, string $version_id)</h3>
+                    <p>Get a model version</p>
+                    <pre class="prettyprint">$response = $model->getVersion('model_owner', 'model_name', 'version_id');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-list">list(string $cursor = null)</h3>
+                    <p>List public models</p>
+                    <pre class="prettyprint">$response = $model->list();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-prediction">prediction(string $model_owner, string $model_name, array $input, array $optional = [])</h3>
+                    <p>Create a prediction using an official model</p>
+                    <pre class="prettyprint">$response = $model->prediction('model_owner', 'model_name', ['input' => ['prompt' => 'Write a short poem about the weather']]);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="model-search">search(string $keyword, string $cursor = null)</h3>
+                    <p>Search public models</p>
+                    <pre class="prettyprint">$response = $model->search('hello');</pre>
+                </section>
+                <!-- Prediction -->
+                <h2 class="h3" id="prediction">Prediction</h2>
+                <section>
+                    <h3 class="h4" id="prediction-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Prediction</p>
+                    <pre class="prettyprint">$prediction = new Prediction($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="prediction-cancel">cancel(string $prediction_id)</h3>
+                    <p>Cancel a prediction</p>
+                    <pre class="prettyprint">$response = $prediction->cancel('prediction_id');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="prediction-create">create(array $input, string $version, array $optional = [])</h3>
+                    <p>Create a prediction</p>
+                    <pre class="prettyprint">$response = $prediction->create(['input' => ['text' => 'Alice']], 'version');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="prediction-get">get(string $prediction_id)</h3>
+                    <p>Get a prediction</p>
+                    <pre class="prettyprint">$response = $prediction->get('prediction_id');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="prediction-list">list(string $cursor = null)</h3>
+                    <p>List predictions</p>
+                    <pre class="prettyprint">$response = $prediction->list();</pre>
+                </section>
+                <!-- Request -->
+                <h2 class="h3" id="req">Request</h2>
+                <section>
+                    <h3 class="h4" id="req-construct">__construct(string $authToken)</h3>
+                    <p>Creates an instance of Request.</p>
+                    <pre class="prettyprint">$request = new Request('auth token');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-getAuthToken">getAuthToken()</h3>
+                    <p>Gets the auth token</p>
+                    <pre class="prettyprint">echo $request->getAuthToken();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-setAuthToken">setAuthToken(string $authToken)</h3>
+                    <p>Sets the auth token</p>
+                    <pre class="prettyprint">$request->setAuthToken('auth token');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-getClient">getClient()</h3>
+                    <p>Gets the HTTP client</p>
+                    <pre class="prettyprint">$client = $request->getClient();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-get">get(string $uri, array $headers = [])</h3>
+                    <p>Make a HTTP GET request</p>
+                    <pre class="prettyprint">$response = $request->get('/models');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-post">post(string $uri, array $data = [], array $headers = [])</h3>
+                    <p>Make a HTTP POST request</p>
+                    <pre class="prettyprint">$response = $request->post("/predictions", [
+    "version" => "5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa",
+    "input" => [
+        "text": "Alice"
+    ]
+]);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-delete">delete(string $uri, array $headers = [])</h3>
+                    <p>Make a HTTP DELETE request</p>
+                    <pre class="prettyprint">$response = $request->delete("/models/{$model_owner}/{$model_name}");</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-patch">patch(string $uri, array $data, array $headers = [])</h3>
+                    <p>Make a HTTP PATCH request</p>
+                    <pre class="prettyprint">$response = $request->patch("/deployments/{$deployment_owner}/{$deployment_name}", ["min_instances": 3, "max_instances": 10]);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="req-query">query(string $uri, string $data, array $headers = [])</h3>
+                    <p>Make a HTTP QUERY request</p>
+                    <pre class="prettyprint">$response = $request->query("/models{$qs}", $keyword, [
+    'Content-Type' => 'text/plain',
+]);</pre>
+                </section>
+                <!-- Response -->
+                <h2 class="h3" id="resp">Response</h2>
+                <section>
+                    <h3 class="h4" id="resp-construct">__construct(array $response)</h3>
+                    <p>Creates an instance of Response</p>
+                    <pre class="prettyprint">$response = new Response([
+    'url' => $url,
+    'method' => $method,
+    'http_code' => $statusCode,
+    'headers' => $responseHeaders,
+    'body' => $body,
+    'error' => null,
+]);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="resp-getBody">getBody($format = true)</h3>
+                    <p>Get the response</p>
+                    <pre class="prettyprint">print_r($response->getBody());</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="resp-getError">getError()</h3>
+                    <p>Get the error, if any</p>
+                    <pre class="prettyprint">echo $response->getError();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="resp-getHeaders">getHeaders()</h3>
+                    <p>Gets the response headers</p>
+                    <pre class="prettyprint">print_r($response->getHeaders());</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="resp-getHttpCode">getHttpCode()</h3>
+                    <p>Gets the HTTP status code</p>
+                    <pre class="prettyprint">echo $response-getHttpCode();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="resp-getMethod">getMethod()</h3>
+                    <p>Gets the request method</p>
+                    <pre class="prettyprint">echo $response->getMethod();</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="resp-getUrl">getUrl()</h3>
+                    <p>Gets the requested URL</p>
+                    <pre class="prettyprint">echo $response->getUrl();</pre>
+                </section>
+                <!-- Training -->
+                <h2 class="h3" id="training">Training</h2>
+                <section>
+                    <h3 class="h4" id="training-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Training.</p>
+                    <pre class="prettyprint">$training = new Training($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="training-cancel">cancel(string $training_id)</h3>
+                    <p>Cancel a training</p>
+                    <pre class="prettyprint">$response = $training->cancel('training_id');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="training-create">create(string $model_owner, string $model_name, string $version_id)</h3>
+                    <p>Create a training</p>
+                    <pre class="prettyprint">$response = $training->create('model_owner', 'model_name', 'version_id');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="training-get">get(string $training_id)</h3>
+                    <p>Get a training</p>
+                    <pre class="prettyprint">$response = $training->get('training_id');</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="training-list">list(string $cursor = null)</h3>
+                    <p>List trainings</p>
+                    <pre class="prettyprint">$response = $training->list();</pre>
+                </section>
+                <!-- Webhook -->
+                <h2 class="h3" id="webhook">Webhook</h2>
+                <section>
+                    <h3 class="h4" id="webhook-construct">__construct(Request $request)</h3>
+                    <p>Creates an instance of Webhook.</p>
+                    <pre class="prettyprint">$webhook = new Webhook($request);</pre>
+                </section>
+                <section>
+                    <h3 class="h4" id="webhook-secret">secret()</h3>
+                    <p>Get the signing secret for the default webhook</p>
+                    <pre class="prettyprint">$response = $webhook->secret();</pre>
+                </section>
+            </div><!-- .col-md-10 -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/run_prettify.js"></script>
+    <script src="js/docs.js"></script>
+</body>
+</html>
