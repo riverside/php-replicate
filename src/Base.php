@@ -14,7 +14,7 @@ class Base
      *
      * @param Request $request
      */
-    public function __construct($request)
+    public function __construct(Request $request)
     {
         $this->request = $request;
     }
