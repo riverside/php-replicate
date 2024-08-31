@@ -68,6 +68,29 @@ Developers clone the repository, and if needed, they can create their own **phpu
 ```
 cp phpunit.xml.dist phpunit.xml
 ```
+
+### API
+- [Account][1]
+- [Collection][2]
+- [Deployment][3]
+- [Hardware][4]
+- [Model][5]
+- [Prediction][6]
+- [Request][7]
+- [Response][8]
+- [Training][9]
+- [Webhook][10]
+
+[1]: https://riverside.github.io/php-replicate/api.html#account
+[2]: https://riverside.github.io/php-replicate/api.html#collection
+[3]: https://riverside.github.io/php-replicate/api.html#deployment
+[4]: https://riverside.github.io/php-replicate/api.html#hardware
+[5]: https://riverside.github.io/php-replicate/api.html#model
+[6]: https://riverside.github.io/php-replicate/api.html#prediction
+[7]: https://riverside.github.io/php-replicate/api.html#req
+[8]: https://riverside.github.io/php-replicate/api.html#resp
+[9]: https://riverside.github.io/php-replicate/api.html#training
+[10]: https://riverside.github.io/php-replicate/api.html#webhook
 [x1]: https://github.com/riverside/php-replicate/actions/workflows/main.yml/badge.svg
 [y1]: https://github.com/riverside/php-replicate/actions/workflows/main.yml
 [x2]: https://poser.pugx.org/riverside/php-replicate/v/stable
