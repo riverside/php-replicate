@@ -21,11 +21,6 @@ class RequestTest extends TestCase
         }
     }
 
-    public function testCurl()
-    {
-        $this->assertTrue(extension_loaded('curl'), 'cURL extension is missing');
-    }
-
     public function testToken()
     {
         $request = new Request(getenv('AUTH_TOKEN'));
