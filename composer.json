@@ -3,7 +3,7 @@
     "description": "PHP client for Replicate",
     "type": "library",
     "version": "1.0.0",
-    "keywords": ["php", "replicate", "php client", "ai", "training"],
+    "keywords": ["php", "replicate", "php-client", "ai", "training"],
     "homepage": "https://github.com/riverside/php-replicate",
     "license": "MIT",
     "authors": [
