@@ -7,8 +7,11 @@ PHP client for Replicate
 
 ### Requirements
 - PHP >= 7.1
-- cURL extension
-- JSON extension
+- PHP extensions:
+  - JSON (`ext-php`)
+
+### Dependencies
+- Guzzle HTTP (`guzzlehttp/guzzle`)
 
 ### Installation
 If Composer is not installed on your system yet, you may go ahead and install it using this command line:
