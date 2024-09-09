@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ($className)
 {
-    $prefix = "PhpReplicate\\";
+    $prefix = "Riverside\\Replicate\\";
 
     $length = strlen($prefix);
     if (strncmp($prefix, $className, $length) !== 0)

@@ -1,7 +1,12 @@
 <?php
-namespace PhpReplicate;
+declare(strict_types=1);
 
+namespace Riverside\Replicate;
 
+/**
+ * Class Prediction
+ * @package Riverside\Replicate
+ */
 class Prediction extends Base
 {
     /**

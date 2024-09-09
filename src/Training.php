@@ -1,7 +1,12 @@
 <?php
-namespace PhpReplicate;
+declare(strict_types=1);
 
+namespace Riverside\Replicate;
 
+/**
+ * Class Training
+ * @package Riverside\Replicate
+ */
 class Training extends Base
 {
     /**

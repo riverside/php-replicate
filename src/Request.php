@@ -1,9 +1,15 @@
 <?php
-namespace PhpReplicate;
+declare(strict_types=1);
+
+namespace Riverside\Replicate;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
+/**
+ * Class Request
+ * @package Riverside\Replicate
+ */
 class Request
 {
     /**

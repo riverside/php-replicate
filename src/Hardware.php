@@ -1,7 +1,12 @@
 <?php
-namespace PhpReplicate;
+declare(strict_types=1);
 
+namespace Riverside\Replicate;
 
+/**
+ * Class Hardware
+ * @package Riverside\Replicate
+ */
 class Hardware extends Base
 {
     /**

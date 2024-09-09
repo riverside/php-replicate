@@ -1,7 +1,12 @@
 <?php
-namespace PhpReplicate;
+declare(strict_types=1);
 
+namespace Riverside\Replicate;
 
+/**
+ * Class Response
+ * @package Riverside\Replicate
+ */
 class Response
 {
     /**
