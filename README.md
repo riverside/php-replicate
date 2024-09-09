@@ -22,7 +22,7 @@ Next, add the following require entry to the <code>composer.json</code> file in 
 ```json
 {
     "require" : {
-        "riverside/php-replicate" : "*"
+        "riverside/php-replicate" : "^1.0"
     }
 }
 ```
@@ -40,12 +40,12 @@ require __DIR__ . '/vendor/autoload.php';
 ### How-to use
 Create an instance of Request:
 ```php
-$request = new Request('your token');
+$request = new \Riverside\Replicate\Request('your token');
 ```
 
 Create an instance of Model
 ```php
-$model = new Model($request);
+$model = new \Riverside\Replicate\Model($request);
 ```
 
 Call actual endpoint:
@@ -60,6 +60,19 @@ print_r($response->getBody());
 
 Full example:
 ```php
+<?php
+$request = new \Riverside\Replicate\Request('your token');
+$model = new \Riverside\Replicate\Model($request);
+$response = $model->get('model owner', 'model name');
+print_r($response->getBody());
+```
+
+or
+```php
+<?php
+use Riverside\Replicate\Request;
+use Riverside\Replicate\Model;
+
 $request = new Request('your token');
 $model = new Model($request);
 $response = $model->get('model owner', 'model name');
