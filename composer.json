@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PhpReplicate\\": "src/"
+            "Riverside\\Replicate\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PhpReplicate\\Tests\\": "tests/"
+            "Riverside\\Replicate\\Tests\\": "tests/"
         }
     },
     "scripts": {
