@@ -1,8 +1,10 @@
 <?php
-namespace PhpReplicate\Tests;
+declare(strict_types=1);
+
+namespace Riverside\Replicate\Tests;
 
 
-use PhpReplicate\Response;
+use Riverside\Replicate\Response;
 use PHPUnit\Framework\TestCase;
 
 class ResponseTest extends TestCase

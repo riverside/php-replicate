@@ -1,9 +1,11 @@
 <?php
-namespace PhpReplicate\Tests;
+declare(strict_types=1);
+
+namespace Riverside\Replicate\Tests;
 
 
-use PhpReplicate\Request;
-use PhpReplicate\Response;
+use Riverside\Replicate\Request;
+use Riverside\Replicate\Response;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 

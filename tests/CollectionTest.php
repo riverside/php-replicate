@@ -1,10 +1,12 @@
 <?php
-namespace PhpReplicate\Tests;
+declare(strict_types=1);
+
+namespace Riverside\Replicate\Tests;
 
 
-use PhpReplicate\Collection;
-use PhpReplicate\Request;
-use PhpReplicate\Response;
+use Riverside\Replicate\Collection;
+use Riverside\Replicate\Request;
+use Riverside\Replicate\Response;
 use PHPUnit\Framework\TestCase;
 
 class CollectionTest extends TestCase

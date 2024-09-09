@@ -1,10 +1,12 @@
 <?php
-namespace PhpReplicate\Tests;
+declare(strict_types=1);
+
+namespace Riverside\Replicate\Tests;
 
 
-use PhpReplicate\Request;
-use PhpReplicate\Response;
-use PhpReplicate\Webhook;
+use Riverside\Replicate\Request;
+use Riverside\Replicate\Response;
+use Riverside\Replicate\Webhook;
 use PHPUnit\Framework\TestCase;
 
 class WebhookTest extends TestCase

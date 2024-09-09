@@ -1,10 +1,12 @@
 <?php
-namespace PhpReplicate\Tests;
+declare(strict_types=1);
+
+namespace Riverside\Replicate\Tests;
 
 
-use PhpReplicate\Deployment;
-use PhpReplicate\Request;
-use PhpReplicate\Response;
+use Riverside\Replicate\Deployment;
+use Riverside\Replicate\Request;
+use Riverside\Replicate\Response;
 use PHPUnit\Framework\TestCase;
 
 class DeploymentTest extends TestCase
@@ -14,7 +16,7 @@ class DeploymentTest extends TestCase
         $request = new Request(getenv('AUTH_TOKEN_FOR_WRITE'));
         $deployment = new Deployment($request);
         $response = $deployment->create(getenv('DEPLOYMENT_NAME'), getenv('MODEL_NAME'), getenv('VERSION_ID'),
-            getenv('HARDWARE'), getenv('MIN_INSTANCES'), getenv('MAX_INSTANCES'));
+            getenv('HARDWARE'), (int) getenv('MIN_INSTANCES'), (int) getenv('MAX_INSTANCES'));
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertIsString($response->getUrl());

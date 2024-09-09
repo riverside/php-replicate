@@ -1,9 +1,11 @@
 <?php
-namespace PhpReplicate\Tests;
+declare(strict_types=1);
+
+namespace Riverside\Replicate\Tests;
 
 
-use PhpReplicate\Base;
-use PhpReplicate\Request;
+use Riverside\Replicate\Base;
+use Riverside\Replicate\Request;
 use PHPUnit\Framework\TestCase;
 
 class BaseTest extends TestCase

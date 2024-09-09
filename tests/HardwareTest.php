@@ -1,10 +1,12 @@
 <?php
-namespace PhpReplicate\Tests;
+declare(strict_types=1);
+
+namespace Riverside\Replicate\Tests;
 
 
-use PhpReplicate\Hardware;
-use PhpReplicate\Request;
-use PhpReplicate\Response;
+use Riverside\Replicate\Hardware;
+use Riverside\Replicate\Request;
+use Riverside\Replicate\Response;
 use PHPUnit\Framework\TestCase;
 
 class HardwareTest extends TestCase
